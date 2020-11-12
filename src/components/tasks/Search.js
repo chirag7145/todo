@@ -10,8 +10,9 @@ const Search = ({ searchTasks }) => {
   };
 
   return (
-    <div>
+    <div className="search-task">
       <input
+        className="search-input"
         type='text'
         name='task'
         placeholder='Search your task ...'

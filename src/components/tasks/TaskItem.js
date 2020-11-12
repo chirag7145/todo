@@ -7,14 +7,10 @@ const TaskItem = ({ task, index, deleteTask }) => {
   };
 
   return (
-    <tr>
-      <td>{index + 1}</td>
-      <td>{task.task}</td>
-      <td>
-        {' '}
-        <button onClick={() => onClick(task.id)}>Cancel</button>
-      </td>
-    </tr>
+
+      <li className="task"> <div className="task-item"> <p>{task.task}</p> <button onClick={() => onClick(task.id)} ><i className="fas fa-trash-alt"></i></button></div> 
+      <div className="clr"></div>
+      </li>
   );
 };
 

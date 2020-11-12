@@ -5,16 +5,8 @@ import TaskItem from './TaskItem';
 const Tasks = ({ tasks, deleteTask }) => {
   console.log(tasks);
   return (
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <th>S.No.</th>
-            <th>Task</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody>
+    <div className="tasks">
+      <ul className='total-tasks'>
           {tasks.map((task, index) => (
             <TaskItem
               key={task.id}
@@ -23,8 +15,7 @@ const Tasks = ({ tasks, deleteTask }) => {
               deleteTask={deleteTask}
             />
           ))}
-        </tbody>
-      </table>
+      </ul>
     </div>
   );
 };

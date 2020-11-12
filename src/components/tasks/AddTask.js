@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 const AddTask = ({ addTask }) => {
@@ -6,15 +6,19 @@ const AddTask = ({ addTask }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (task.length > 0) {
+    if(!task || /^\s*$/.test(task)) 
+    {
+      setTask('');
+    }
+    else{
       addTask(task);
       setTask('');
     }
   };
 
   return (
-    <div>
-      <form onSubmit={onSubmit}>
+    <Fragment>
+      <form className="todo-form" onSubmit={onSubmit}>
         <input
           type='text'
           name='task'
@@ -22,9 +26,9 @@ const AddTask = ({ addTask }) => {
           value={task}
           onChange={(e) => setTask(e.target.value)}
         />
-        <button type='submit'>Add</button>
+        <button className="add-button" type='submit'>Add</button>
       </form>
-    </div>
+    </Fragment>
   );
 };
 
